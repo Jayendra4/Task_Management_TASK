@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://localhost:7000/api/login", {
+      let res = await fetch("https://task-management-task-wdig.onrender.com/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
