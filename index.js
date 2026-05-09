@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 7000
 
 app.use(cors({
-    origin : ["http://localhost:5173", "http://localhost:5174"],
+    origin : ["task-management-task-sigma.vercel.app"],
     credentials :true
 }));
 
