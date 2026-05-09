@@ -1,7 +1,6 @@
 # Task Management System
 
-## 🚀 Live Demo
-**[task-management-task-sigma.vercel.app]** 
+
 
 ## Project Setup Steps
 
