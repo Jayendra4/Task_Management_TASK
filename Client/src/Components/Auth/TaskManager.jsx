@@ -47,7 +47,7 @@ const TaskManager = () => {
       if (searchTerm) queryParams.append('search', searchTerm);
       if (filterStatus !== 'all') queryParams.append('status', filterStatus);
 
-      const response = await fetch(`https://task-management-task-wdig.onrender.com/api/tasks?${queryParams}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:7000"}/api/tasks?${queryParams}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -80,8 +80,8 @@ const TaskManager = () => {
     
     try {
       const url = showEditModal 
-        ? `https://task-management-task-wdig.onrender.com/api/tasks/edit/${selectedTask._id}`
-        : 'https://task-management-task-wdig.onrender.com/api/tasks/add';
+        ? `${import.meta.env.VITE_API_URL || "http://localhost:7000"}/api/tasks/edit/${selectedTask._id}`
+        : `${import.meta.env.VITE_API_URL || "http://localhost:7000"}/api/tasks/add`;
       
       const method = showEditModal ? 'PUT' : 'POST';
 
@@ -112,7 +112,7 @@ const TaskManager = () => {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`https://task-management-task-wdig.onrender.com/api/tasks/delete/${selectedTask._id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:7000"}/api/tasks/delete/${selectedTask._id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -137,7 +137,7 @@ const TaskManager = () => {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch(`https://task-management-task-wdig.onrender.com/api/tasks/toggle/${task._id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:7000"}/api/tasks/toggle/${task._id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`

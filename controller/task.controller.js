@@ -21,6 +21,7 @@ export const verifyToken = (req, res, next) => {
 export const getAllTasks = async (req, res) => {
   try {
     const { status, search } = req.query;
+    console.log('Search query received:', { status, search });
     let filter = { userId: req.user.id };
     
     if (status && status !== 'all') {
@@ -29,11 +30,14 @@ export const getAllTasks = async (req, res) => {
     
     if (search) {
       filter.title = { $regex: search, $options: 'i' };
+      console.log('Search filter applied:', filter);
     }
     
     const tasks = await Task.find(filter).sort({ createdAt: -1 });
+    console.log('Found tasks:', tasks.length);
     res.status(200).json(tasks);
   } catch (error) {
+    console.error('Error in getAllTasks:', error);
     res.status(500).json({ message: "Error fetching tasks", error: error.message });
   }
 };
