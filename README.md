@@ -1,7 +1,5 @@
 # Task Management System
 
-
-
 ## Project Setup Steps
 
 1. Clone the repository:
@@ -27,7 +25,7 @@ cd ..
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/database-name?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://jayendra:jy8wwdje9PwvL9bn@cluster0.p6ly479.mongodb.net/bookstore?retryWrites=true&w=majority&appName=Cluster0
 PORT=7000
 JWT_SECRET=your-secret-key-here
 NODE_ENV=development

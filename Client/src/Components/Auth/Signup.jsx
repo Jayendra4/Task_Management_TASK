@@ -17,7 +17,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("https://task-management-task-wdig.onrender.com/api/registration", {
+      let res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:7000"}/api/registration`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
